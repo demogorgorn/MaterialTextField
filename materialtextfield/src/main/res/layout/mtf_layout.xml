@@ -32,6 +32,15 @@
 
             />
 
+        <ImageView
+            android:id="@+id/mtf_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="10dp"
+
+            android:adjustViewBounds="true" />
+
         <FrameLayout
             android:id="@+id/mtf_editTextLayout"
             android:layout_width="match_parent"

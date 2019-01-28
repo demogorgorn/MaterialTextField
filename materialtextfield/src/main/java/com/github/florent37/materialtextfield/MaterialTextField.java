@@ -24,6 +24,7 @@ public class MaterialTextField extends FrameLayout {
     protected TextView label;
     protected View card;
     protected ImageView image;
+    protected ImageView imageButton;
     protected EditText editText;
     protected ViewGroup editTextLayout;
 
@@ -34,6 +35,7 @@ public class MaterialTextField extends FrameLayout {
     protected boolean OPEN_KEYBOARD_ON_FOCUS = true;
     protected int labelColor = -1;
     protected int imageDrawableId = -1;
+    protected int imageButtonDrawableId = -1;
     protected int cardCollapsedHeight = -1;
     protected boolean hasFocus = false;
     protected int backgroundColor = -1;
@@ -85,6 +87,12 @@ public class MaterialTextField extends FrameLayout {
                 .scaleX(0.4f)
                 .scaleY(0.4f)
                 .setDuration(ANIMATION_DURATION);
+
+            ViewCompat.animate(imageButton)
+                    .alpha(0)
+                    .scaleX(0.4f)
+                    .scaleY(0.4f)
+                    .setDuration(ANIMATION_DURATION);
 
             ViewCompat.animate(editText)
                 .alpha(1f)
@@ -152,6 +160,12 @@ public class MaterialTextField extends FrameLayout {
                 .scaleY(1f)
                 .setDuration(ANIMATION_DURATION);
 
+            ViewCompat.animate(imageButton)
+                    .alpha(1f)
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(ANIMATION_DURATION);
+
             if (editText != null) {
                 editText.requestFocus();
             }
@@ -182,6 +196,10 @@ public class MaterialTextField extends FrameLayout {
 
     public ImageView getImage() {
         return image;
+    }
+
+    public ImageView getImageButton() {
+        return imageButton;
     }
 
     public EditText getEditText() {
@@ -227,6 +245,9 @@ public class MaterialTextField extends FrameLayout {
             }
             {
                 imageDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_image, -1);
+            }
+            {
+                imageButtonDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_image_search, -1);
             }
             {
                 cardCollapsedHeight = styledAttrs.getDimensionPixelOffset(R.styleable.MaterialTextField_mtf_cardCollapsedHeight, context.getResources().getDimensionPixelOffset(R.dimen.mtf_cardHeight_initial));
@@ -293,6 +314,12 @@ public class MaterialTextField extends FrameLayout {
         ViewCompat.setScaleX(image, 0.4f);
         ViewCompat.setScaleY(image, 0.4f);
 
+        imageButton = (ImageView) findViewById(R.id.mtf_image_search);
+        ViewCompat.setAlpha(imageButton, 0);
+        ViewCompat.setScaleX(imageButton, 0.4f);
+        ViewCompat.setScaleY(imageButton, 0.4f);
+
+
         ViewCompat.setAlpha(editText, 0f);
         editText.setBackgroundColor(Color.TRANSPARENT);
 
@@ -318,6 +345,13 @@ public class MaterialTextField extends FrameLayout {
         if (imageDrawableId != -1) {
             this.image.setImageDrawable(ContextCompat.getDrawable(getContext(), imageDrawableId));
         }
+
+        if (imageButtonDrawableId != -1) {
+            this.imageButton.setImageDrawable(ContextCompat.getDrawable(getContext(), imageButtonDrawableId));
+        } else {
+            this.imageButton.setVisibility(View.INVISIBLE);
+        }
+
     }
 
 }
