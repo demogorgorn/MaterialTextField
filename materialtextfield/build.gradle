@@ -1,14 +1,11 @@
 apply plugin: 'com.android.library'
 
-version = project.libraryVersion
-
 android {
-    compileSdkVersion project.sdk
-    buildToolsVersion project.buildTools
-
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
-        minSdkVersion project.minSdk
-        targetSdkVersion project.sdk
+        minSdkVersion 21
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -18,37 +15,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
-}
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'MaterialTextField'
-    orgName = 'florent37'
-
-    publishedGroupId = 'com.github.florent37'
-    libraryName = 'MaterialTextField'
-    artifact = 'materialtextfield'
-
-    libraryDescription = 'MaterialTextField'
-
-    siteUrl = 'https://github.com/florent37/MaterialTextField'
-    gitUrl = 'https://github.com/florent37/MaterialTextField.git'
-
-    libraryVersion = rootProject.ext.libraryVersion
-
-    developerId = 'florent37'
-    developerName = 'Florent Champigny'
-    developerEmail = 'champigny.florent@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
 }
 
 /*

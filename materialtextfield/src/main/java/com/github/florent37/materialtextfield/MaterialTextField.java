@@ -247,7 +247,7 @@ public class MaterialTextField extends FrameLayout {
                 imageDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_image, -1);
             }
             {
-                imageButtonDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_image_search, -1);
+                imageButtonDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_search, -1);
             }
             {
                 cardCollapsedHeight = styledAttrs.getDimensionPixelOffset(R.styleable.MaterialTextField_mtf_cardCollapsedHeight, context.getResources().getDimensionPixelOffset(R.dimen.mtf_cardHeight_initial));
@@ -314,7 +314,7 @@ public class MaterialTextField extends FrameLayout {
         ViewCompat.setScaleX(image, 0.4f);
         ViewCompat.setScaleY(image, 0.4f);
 
-        imageButton = (ImageView) findViewById(R.id.mtf_image_search);
+        imageButton = (ImageView) findViewById(R.id.mtf_search);
         ViewCompat.setAlpha(imageButton, 0);
         ViewCompat.setScaleX(imageButton, 0.4f);
         ViewCompat.setScaleY(imageButton, 0.4f);
