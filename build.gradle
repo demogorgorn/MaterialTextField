@@ -4,13 +4,13 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.3.0'
     }
 }
 
 ext {
     sdk = 25
-    buildTools = "25.0.2"
+    buildTools = "28.0.3"
     minSdk = 10
     libraryVersion = "1.0.7"
     supportVersion = "25.1.0"
