@@ -39,6 +39,7 @@ public class MaterialTextField extends FrameLayout {
     protected int cardCollapsedHeight = -1;
     protected boolean hasFocus = false;
     protected int backgroundColor = -1;
+    protected boolean notCollapsible = false;
 
     protected float reducedScale = 0.2f;
 
@@ -214,6 +215,10 @@ public class MaterialTextField extends FrameLayout {
         return expanded;
     }
 
+    public boolean isCollapsible() {
+        return !notCollapsible;
+    }
+
     public void setHasFocus(boolean hasFocus) {
         this.hasFocus = hasFocus;
 
@@ -257,6 +262,9 @@ public class MaterialTextField extends FrameLayout {
             }
             {
                 backgroundColor = styledAttrs.getColor(R.styleable.MaterialTextField_mtf_backgroundColor, -1);
+            }
+            {
+                notCollapsible = styledAttrs.getBoolean(R.styleable.MaterialTextField_mtf_notCollapsible, false);
             }
 
             styledAttrs.recycle();
@@ -327,12 +335,16 @@ public class MaterialTextField extends FrameLayout {
 
         customizeFromAttributes();
 
-        this.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggle();
-            }
-        });
+        if (!notCollapsible)
+            this.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    toggle();
+                }
+            });
+        else {
+            expand();
+        }
 
         setHasFocus(hasFocus);
     }

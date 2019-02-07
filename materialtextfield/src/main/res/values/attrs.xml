@@ -9,5 +9,6 @@
         <attr name="mtf_animationDuration" format="integer"/>
         <attr name="mtf_openKeyboardOnFocus" format="boolean"/>
         <attr name="mtf_backgroundColor" format="color"/>
+        <attr name="mtf_notCollapsible" format="boolean"/>
     </declare-styleable>
 </resources>
