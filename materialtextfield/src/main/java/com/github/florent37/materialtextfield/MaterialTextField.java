@@ -335,18 +335,20 @@ public class MaterialTextField extends FrameLayout {
 
         customizeFromAttributes();
 
-        if (!notCollapsible)
+        if (!notCollapsible) {
             this.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     toggle();
                 }
             });
+            setHasFocus(hasFocus);
+        }
         else {
             expand();
         }
 
-        setHasFocus(hasFocus);
+
     }
 
     protected void customizeFromAttributes() {
