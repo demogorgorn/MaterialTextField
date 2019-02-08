@@ -275,7 +275,7 @@ public class MaterialTextField extends FrameLayout {
                 showNotCollapsibleKeyboard = styledAttrs.getBoolean(R.styleable.MaterialTextField_mtf_showNotCollapsibleKeyboard, false);
             }
             {
-                imageButtonDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_showNotCollapsibleKeyboardDelay, 100);
+                showNotCollapsibleKeyboardDelay = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_showNotCollapsibleKeyboardDelay, 100);
             }
 
             styledAttrs.recycle();
@@ -367,7 +367,7 @@ public class MaterialTextField extends FrameLayout {
                         hasFocus = true;
                     }
                 }, showNotCollapsibleKeyboardDelay);
-               
+
             }
 
         }
