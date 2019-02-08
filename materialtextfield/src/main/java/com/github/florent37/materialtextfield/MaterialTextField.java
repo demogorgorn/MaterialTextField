@@ -362,8 +362,8 @@ public class MaterialTextField extends FrameLayout {
 
                 editText.postDelayed(new Runnable() {
                     public void run() {
-                        editText.requestFocusFromTouch();
-                        inputMethodManager.showSoftInput(editText, 0);
+                        editText.requestFocus();
+                        inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
                     }
                 }, showNotCollapsibleKeyboardDelay);
 
