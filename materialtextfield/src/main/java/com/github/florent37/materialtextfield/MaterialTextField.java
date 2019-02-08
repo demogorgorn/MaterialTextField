@@ -359,10 +359,11 @@ public class MaterialTextField extends FrameLayout {
             expand();
 
             if (showNotCollapsibleKeyboard) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
+                editText.postDelayed(new Runnable() {
                     public void run() {
-                        setHasFocus(true);
+                        editText.requestFocusFromTouch();
+                        inputMethodManager.showSoftInput(editText, 0);
+                        hasFocus = true;
                     }
                 }, showNotCollapsibleKeyboardDelay);
             }
