@@ -10,5 +10,7 @@
         <attr name="mtf_openKeyboardOnFocus" format="boolean"/>
         <attr name="mtf_backgroundColor" format="color"/>
         <attr name="mtf_notCollapsible" format="boolean"/>
+        <attr name="mtf_showNotCollapsibleKeyboard" format="boolean"/>
+        <attr name="mtf_showNotCollapsibleKeyboardDelay" format="integer"/>
     </declare-styleable>
 </resources>

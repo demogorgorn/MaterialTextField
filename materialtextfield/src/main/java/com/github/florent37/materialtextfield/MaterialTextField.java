@@ -3,6 +3,7 @@ package com.github.florent37.materialtextfield;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -39,7 +40,11 @@ public class MaterialTextField extends FrameLayout {
     protected int cardCollapsedHeight = -1;
     protected boolean hasFocus = false;
     protected int backgroundColor = -1;
+
     protected boolean notCollapsible = false;
+    protected boolean showNotCollapsibleKeyboard = false;
+    protected int showNotCollapsibleKeyboardDelay = 100;
+
 
     protected float reducedScale = 0.2f;
 
@@ -266,6 +271,12 @@ public class MaterialTextField extends FrameLayout {
             {
                 notCollapsible = styledAttrs.getBoolean(R.styleable.MaterialTextField_mtf_notCollapsible, false);
             }
+            {
+                showNotCollapsibleKeyboard = styledAttrs.getBoolean(R.styleable.MaterialTextField_mtf_showNotCollapsibleKeyboard, false);
+            }
+            {
+                imageButtonDrawableId = styledAttrs.getResourceId(R.styleable.MaterialTextField_mtf_showNotCollapsibleKeyboardDelay, 100);
+            }
 
             styledAttrs.recycle();
         } catch (Exception e) {
@@ -346,6 +357,16 @@ public class MaterialTextField extends FrameLayout {
         }
         else {
             expand();
+
+            if (showNotCollapsibleKeyboard) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        setHasFocus(true);
+                    }
+                }, showNotCollapsibleKeyboardDelay);
+            }
+
         }
 
 
